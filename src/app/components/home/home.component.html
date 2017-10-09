@@ -1,0 +1,67 @@
+<div class="container">
+  <div fxLayout="row" fxLayout.lt-sm="column" class="mt5">
+    <div fxFlex="70" class=" mb5 mr5">
+      <mat-card>
+
+        <mat-card-header>
+          <h2>COMPRA TU VIAJE AQUÍ!</h2>
+        </mat-card-header>
+        <mat-card-content fxLayout="row" fxLayout.lt-sm="column">
+
+          <mat-form-field fxFlex="49" color="accent">
+            <input matInput placeholder="Origen">
+          </mat-form-field>
+          <span fxFlex="1"> </span>
+          <mat-form-field fxFlex="50" color="accent">
+            <input matInput placeholder="Destino">
+          </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-content fxLayout="row" fxLayout.lt-sm="column">
+
+          <mat-form-field fxFlex="33" color="accent">
+            <input matInput [matDatepicker]="picker" placeholder="Fecha de Salida">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <span fxFlex="1"> </span>
+          <mat-form-field fxFlex="32" color="accent">
+            <input matInput [matDatepicker]="picker2" placeholder="Fecha de llegada">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <span fxFlex="1"> </span>
+          <mat-checkbox fxFlex="33">Aun no decido la fecha</mat-checkbox>
+
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+          <button mat-raised-button color="accent">Buscar</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </div>
+    <div fxFlex="30" fxFlexAlign="stretch" class="mb5 mr5">
+      <mat-toolbar color="accent">
+        <h1>PROMOCIONES DEL MES!</h1>
+      </mat-toolbar>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.lt-sm="column" class="mt5 dark-theme">
+    <mat-card fxFlex="25" class="mr5 mb5">
+      <img mat-card-image src="assets/images/home1.jpg">
+      <mat-card-title>Cabo San Lucas</mat-card-title>
+    </mat-card>
+    <mat-card fxFlex="25" class="mr5 mb5">
+      <img mat-card-image src="assets/images/home2.jpg">
+      <mat-card-title>Yucatán</mat-card-title>
+    </mat-card>
+    <mat-card fxFlex="25" class="mr5 mb5">
+      <img mat-card-image src="assets/images/home3.jpg">
+      <mat-card-title>San Luis Potosí</mat-card-title>
+    </mat-card>
+    <mat-card fxFlex="25" class="mr5 mb5">
+      <img mat-card-image src="assets/images/home4.jpg">
+      <mat-card-title>Queretaro</mat-card-title>
+    </mat-card>
+  </div>
+</div>

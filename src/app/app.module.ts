@@ -37,10 +37,16 @@ import {
   MatTableModule,
   MatTabsModule
 } from '@angular/material';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    SideNavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
