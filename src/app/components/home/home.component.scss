@@ -1,0 +1,33 @@
+/* .example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  background-image: url('http://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+*/
+.mr5{
+  margin-right: 5px;
+}
+.mt5{
+  margin-top: 5px!important;
+}
+.mb5{
+  margin-bottom: 5px!important;
+}
+.mat-card-image{
+  min-height: 192px;
+  max-height: 192px;
+}
+.container{
+  padding: 10px
+} 

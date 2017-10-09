@@ -2,17 +2,32 @@
 
 @include mat-core();
 
-$candy-app-primary: mat-palette($mat-cyan,600);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+/*Primary themes*/
+$accent: mat-palette($mat-light-green);
+$warn: mat-palette($mat-red,A700);
+$primary: mat-palette($mat-deep-orange);
+$default-theme: mat-light-theme($primary,$accent,$warn);
+@include angular-material-theme($default-theme);
 
-@include angular-material-theme($candy-app-theme);
+/** Light theme*/
+$light-primary: mat-palette($mat-deep-orange,100);
+$light-theme: mat-light-theme($light-primary,$accent,$warn);
 
-$dark-primary: mat-palette($mat-blue-grey);
-$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-$dark-warn:    mat-palette($mat-deep-orange);
-$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+.light-theme{
+  @include angular-material-theme($light-theme);
+}
 
-.unicorn-dark-theme {
+/*dark theme*/
+$dark-primary: mat-palette($mat-deep-orange, 700);
+$dark-theme: mat-dark-theme($dark-primary, $accent, $warn);
+
+.dark-theme {
   @include angular-material-theme($dark-theme);
+}
+app-root{
+  top: 0; 
+  left: 0;
+  right: 0; 
+  bottom: 0; 
+  position: absolute;
 }
