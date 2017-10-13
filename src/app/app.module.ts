@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { APP_ROUTING } from './routes';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,13 +41,19 @@ import {
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { HomeComponent } from './components/home/home.component';
+import { RedondosComponent } from './components/redondos/redondos.component';
+import { AvionComponent } from './components/avion/avion.component';
+import { HotelComponent } from './components/hotel/hotel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SideNavComponent,
-    HomeComponent
+    HomeComponent,
+    RedondosComponent,
+    AvionComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +88,8 @@ import { HomeComponent } from './components/home/home.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]

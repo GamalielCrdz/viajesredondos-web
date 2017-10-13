@@ -1,24 +1,24 @@
 <mat-toolbar color="primary">
 
-  <button mat-button routerLink="/">
+  <button mat-button routerLink="/home">
     <mat-icon>home</mat-icon> 
     <span class="title">Viajes Redondos</span>
   </button>
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button mat-button routerLink="/products">
+    <button mat-button routerLink="/hotel">
      <mat-icon>hotel</mat-icon> 
       Hotel
     </button>
-    <button mat-button routerLink="/dashboard">
+    <button mat-button routerLink="/avion">
     <mat-icon>flight</mat-icon>  
       Avion
     </button>
-    <button mat-button routerLink="/dashboard">
+    <button mat-button routerLink="/redondos">
     <mat-icon>work</mat-icon> 
       Redondos
     </button>
-    <button mat-button routerLink="/dashboard">
+    <button mat-button routerLink="/check-in">
       <mat-icon>map</mat-icon> 
       Ckeck-in
     </button>
@@ -29,7 +29,9 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item routerLink="/products">Products</button>
-  <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+  <button mat-menu-item routerLink="/hotel">Hotel</button>
+  <button mat-menu-item routerLink="/avion">Avion</button>
+  <button mat-menu-item routerLink="/redondos">Redondos</button>
+  <button mat-menu-item routerLink="/dashboard">Ckeck-in</button>
   <button mat-menu-item>Help</button>
 </mat-menu>
