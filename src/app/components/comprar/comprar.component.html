@@ -1,0 +1,135 @@
+<mat-toolbar>
+  <div fxFlex="10">
+    <button mat-icon-button color="warn" routerLink="/detalles">
+    <mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon>
+  </button>
+  </div>
+  <div fxFlex class="text-center">
+    Detalles de tu compra
+  </div>
+</mat-toolbar>
+<div class="mt5" fxLayout="row" fxLayout.lt-sm="column">
+  <mat-card *ngIf="!hide" fxFlex style="background-color:#8bc34a">
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutWrap>
+        <p fxFlex="80">Paquete para 2 Personas</p>
+        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Descuento viajesredondos.com</p>
+        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Impuestos, tasas y cargos</p>
+        <p fxFlex="20">$100</p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxLayout="row">
+        <button fxFlex mat-raised-button color="warn" (click)="hide=true">Comprar</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card fxFlex *ngIf="hide">
+    <mat-card-header>
+      <h1> Pasajeros</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+        <h3 fxFlex="100">Adulto 1</h3>
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Nombre">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Apellido">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Nacionalidad">
+        </mat-form-field>
+        <mat-form-field fxFlex="45">
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-radio-group fxFlex>
+          Sexo:
+          <mat-radio-button value="1">Femenino</mat-radio-button>
+          <mat-radio-button value="2">Masculino</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+        <h3 fxFlex="100">Adulto 2</h3>
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Nombre">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Apellido">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Nacionalidad">
+        </mat-form-field>
+        <mat-form-field fxFlex="45">
+          <input matInput [matDatepicker]="picker2" placeholder="Fecha de Nacimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-radio-group fxFlex>
+          Sexo:
+          <mat-radio-button value="1">Femenino</mat-radio-button>
+          <mat-radio-button value="2">Masculino</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-card-actions>
+        <button routerLink="/pago" mat-raised-button color="accent">
+          Forma de Pago
+          <mat-icon aria-label="Example icon-button with a heart icon">navigate_next</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+
+  <div fxFlex class="ml5">
+    <mat-accordion multi="true">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>VUELO</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="border" fxLayout="row" fxLayoutWrap>
+          <p fxFlex="50"><strong>Ida:</strong>10 Sep</p>
+          <p fxFlex="50"><strong>Directo</strong></p>
+          <p fxFlex="50"><strong>Origen:</strong>MTY</p>
+          <p fxFlex="50"><strong>Destino:</strong>GDL</p>
+          <p fxFlex="50"><strong>Sale:</strong>8:00 hrs</p>
+          <p fxFlex="50"><strong>Llega:</strong>10:00 hrs</p>
+        </div>
+        <div class="border mt5" fxLayout="row" fxLayoutWrap>
+          <p fxFlex="50"><strong>Vuelta:</strong>10 Sep</p>
+          <p fxFlex="50"><strong>Directo</strong></p>
+          <p fxFlex="50"><strong>Origen:</strong>MTY</p>
+          <p fxFlex="50"><strong>Destino:</strong>GDL</p>
+          <p fxFlex="50"><strong>Sale:</strong>8:00 hrs</p>
+          <p fxFlex="50"><strong>Llega:</strong>10:00 hrs</p>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>HOTEL</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="border mt5" fxLayout="column" fxLayoutWrap>
+          <p fxFlex="50"><strong>Hotel FIME</strong>
+            <mat-icon color="primary">star</mat-icon>
+            <mat-icon color="primary">star</mat-icon>
+            <mat-icon color="primary">star</mat-icon>
+            <mat-icon color="primary">star</mat-icon>
+            <mat-icon color="primary">star</mat-icon>
+          </p>
+          <p fxFlex="50"><strong>1 Noche</strong></p>
+          <p fxFlex="50"><strong>2 Adultos</strong></p>
+          <p fxFlex="50"><strong>Ida: 10 septiembre</strong></p>
+          <p fxFlex="50"><strong>Vuelta: 11 septiembre</strong></p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

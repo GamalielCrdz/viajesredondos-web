@@ -45,6 +45,8 @@ import { RedondosComponent } from './components/redondos/redondos.component';
 import { AvionComponent } from './components/avion/avion.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
+import { ComprarComponent } from './components/comprar/comprar.component';
+import { PagoFormComponent } from './components/pago-form/pago-form.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DetallesComponent } from './components/detalles/detalles.component';
     RedondosComponent,
     AvionComponent,
     HotelComponent,
-    DetallesComponent
+    DetallesComponent,
+    ComprarComponent,
+    PagoFormComponent
   ],
   imports: [
     BrowserModule,
