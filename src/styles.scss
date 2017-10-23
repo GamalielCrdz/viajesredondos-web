@@ -24,28 +24,43 @@ $dark-theme: mat-dark-theme($dark-primary, $accent, $warn);
 .dark-theme {
   @include angular-material-theme($dark-theme);
 }
-app-root{
+app-root {
   top: 0; 
   left: 0;
   right: 0; 
   bottom: 0; 
   position: absolute;
 }
-.container{
+.container {
   padding: 10px
 } 
-.mr5{
+.mr5 {
   margin-right: 5px;
 }
-.mt5{
+.mt5 {
   margin-top: 5px!important;
 }
-.mb5{
+.mb5 {
   margin-bottom: 5px!important;
 }
-.mb10{
+.mb10 {
   margin-bottom: 10px!important;
 }
-.m0{
+.m0 {
   margin: 0px!important; 
+}
+.ml5 {
+  margin-left: 5px!important; 
+}
+.ml15 {
+  margin-left: 15px!important; 
+}
+.mat-checkbox-layout {
+  white-space: normal!important;
+}
+.text-center {
+  text-align: center!important;
+}
+.text-right {
+  text-align: right!important;
 }

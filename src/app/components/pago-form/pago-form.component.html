@@ -1,0 +1,110 @@
+<mat-toolbar>
+  <div fxFlex="10">
+    <button mat-icon-button color="warn" routerLink="/compra">
+    <mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon>
+  </button>
+  </div>
+  <div fxFlex class="text-center">
+    Forma de Pago
+  </div>
+</mat-toolbar>
+<div *ngIf="!compra" class="mt5" fxLayout="row" fxLayout.lt-sm="column">
+  <mat-card fxFlex="30" style="background-color:#8bc34a">
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutWrap>
+        <p fxFlex="80">Paquete para 2 Personas</p>
+        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Descuento viajesredondos.com</p>
+        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Impuestos, tasas y cargos</p>
+        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Total</p>
+        <p fxFlex="20">$300</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card fxFlex>
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+        <mat-form-field fxFlex="100">
+          <mat-select placeholder="Tarjeta" name="tarjeta">
+            <mat-option *ngFor="let tarjeta of tarjetas" [value]="tarjeta.name">
+              {{tarjeta.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Numero de Tarjeta">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="15">
+          <mat-select placeholder="Mes" name="mes">
+            <mat-option *ngFor="let mes of meses" [value]="mes.name">
+              {{mes.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="15">
+          <mat-select placeholder="Ano" name="año">
+            <mat-option *ngFor="let ano of anos" [value]="ano.name">
+              {{ano.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="17">
+          <input matInput placeholder="Codigo de Seguridad">
+        </mat-form-field>
+
+
+        <mat-form-field fxFlex="50">
+          <input matInput placeholder="Titular de la tarjeta">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+        <h3 fxFlex="100">Direccio de entrega del resumen de la tarjeta</h3>
+        <mat-form-field fxFlex="45">
+          <mat-select placeholder="Estado" name="estado">
+            <mat-option *ngFor="let estado of estados" [value]="estado.name">
+              {{estado.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Ciudad">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="45">
+          <input matInput placeholder="Calle">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="15">
+           <input matInput placeholder="Numero">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="15">
+          <input matInput placeholder="Piso">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="15">
+          <input matInput placeholder="Departamento">
+        </mat-form-field>
+        <mat-form-field fxFlex="30">
+          <input matInput placeholder="Codigo Postal">
+        </mat-form-field>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="compra=true">
+          COMPRAR
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="compra">
+<h1>Gracias por tu compra</h1>
+</div>

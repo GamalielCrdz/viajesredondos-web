@@ -44,6 +44,9 @@ import { HomeComponent } from './components/home/home.component';
 import { RedondosComponent } from './components/redondos/redondos.component';
 import { AvionComponent } from './components/avion/avion.component';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { DetallesComponent } from './components/detalles/detalles.component';
+import { ComprarComponent } from './components/comprar/comprar.component';
+import { PagoFormComponent } from './components/pago-form/pago-form.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { HotelComponent } from './components/hotel/hotel.component';
     HomeComponent,
     RedondosComponent,
     AvionComponent,
-    HotelComponent
+    HotelComponent,
+    DetallesComponent,
+    ComprarComponent,
+    PagoFormComponent
   ],
   imports: [
     BrowserModule,
