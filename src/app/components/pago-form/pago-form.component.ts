@@ -161,7 +161,8 @@ export class PagoFormComponent implements OnInit {
       "id": 32,
       "name": "Zacatecas"
     }
-  ]
+  ];
+  public compra:boolean = false;
   constructor() { }
 
   ngOnInit() {

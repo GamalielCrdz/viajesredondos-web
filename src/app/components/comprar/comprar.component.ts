@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComprarComponent implements OnInit {
 
+  hide:boolean = false;
   constructor() { }
 
   ngOnInit() {
