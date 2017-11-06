@@ -6,6 +6,7 @@ import { APP_ROUTING } from './routes';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -81,6 +82,7 @@ var firebaseConfig = {
   imports: [
     BrowserModule,
     HttpModule,
+    NoopAnimationsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
