@@ -8,26 +8,33 @@
       <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap>
 
         <mat-form-field fxFlex="49" fxFlex.lt-sm="100" color="accent">
-          <input matInput placeholder="Origen">
+          <mat-select placeholder="Origen">
+            <mat-option *ngFor="let estado of estados" [value]="estado.name">
+              {{estado.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <span fxFlex="1"> </span>
         <mat-form-field fxFlex="50" color="accent">
-          <input matInput placeholder="Destino">
+          <mat-select placeholder="Destino">
+            <mat-option *ngFor="let estado of estados" [value]="estado.name">
+              {{estado.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field fxFlex="33" color="accent">
-          <input matInput [matDatepicker]="picker" placeholder="Fecha de Salida">
+          <input matInput [matDatepicker]="picker" (focus)="picker.open()" [disabled]="checked" placeholder="Fecha de Salida">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <span fxFlex="1"> </span>
         <mat-form-field fxFlex="32" color="accent">
-          <input matInput [matDatepicker]="picker2" placeholder="Fecha de llegada">
+          <input matInput [matDatepicker]="picker2" (focus)="picker2.open()"  [disabled]="checked" placeholder="Fecha de llegada">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
         <span fxFlex="1"> </span>
-        <mat-checkbox class="mat-checkbox-layout" fxFlex="33">Aun no decido la fecha</mat-checkbox>
-
+        <mat-checkbox class="mat-checkbox-layout" [(checked)]="checked" (change)="checked=!checked" fxFlex="33">Aun no decido la fecha</mat-checkbox>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
         <button mat-raised-button color="accent" routerLink="/redondos">Buscar</button>
