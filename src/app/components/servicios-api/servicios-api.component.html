@@ -1,0 +1,79 @@
+<h1>Hoteles</h1>
+<h2>Lista de hoteles</h2>
+<div fxLayout="column">
+  <p *ngFor="let hotel of hoteles">{{hotel.name}} <button (click)="deleteHotel(hotel.id)">Eliminar</button> </p>
+</div>
+<h2>Crear hoteles</h2>
+<form (ngSubmit)="createHotel(hotelForm.value)" [formGroup]="hotelForm" fxLayout="row" fxLayoutWrap>
+  <mat-form-field fxFlex="50" color="accent">
+    <input matInput placeholder="Nombre" formControlName="name">
+  </mat-form-field>
+  <mat-form-field fxFlex="50" color="accent">
+    <input type="number" max="5" matInput placeholder="Calificacion" formControlName="qualification">
+  </mat-form-field>
+  <mat-form-field fxFlex="50" color="accent">
+    <input type="text" matInput placeholder="Direccion" formControlName="address">
+  </mat-form-field>
+  <mat-form-field fxFlex="50" color="accent">
+    <input type="text" matInput placeholder="Opiniones" [(ngModel)]="opinion" [ngModelOptions]="{standalone: true}">
+  </mat-form-field> 
+  <button type="button" (click)="saveOpinion()">SaveOpinion</button>
+  <input type="submit">
+</form>
+
+
+<h1>Viajes</h1>
+<h2>Lista de Viajes</h2>
+<div fxLayout="column">
+  <p *ngFor="let viajes of travels">
+    {{viajes.departureDate | date}} 
+    <button (click)="deleteTravel(viajes.id)">Eliminar</button> </p>
+</div>
+<h2>Crear Viajes</h2>
+<form (ngSubmit)="createTravel(travelForm.value)" [formGroup]="travelForm" fxLayout="row" fxLayoutWrap>
+  <mat-form-field fxFlex="33" color="accent">
+    <input matInput formControlName="departureDate" [matDatepicker]="picker" (focus)="picker.open()" placeholder="Fecha de Salida">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="33" color="accent">
+    <input matInput formControlName="returnDate" [matDatepicker]="picker2" (focus)="picker2.open()" placeholder="Fecha de Regreso">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="49" fxFlex.lt-sm="100" color="accent">
+    <mat-select formControlName="departureCity" placeholder="Origen">
+      <mat-option *ngFor="let estado of estados" [value]="estado.name">
+        {{estado.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="50" color="accent">
+    <mat-select formControlName="arrivalCity" placeholder="Destino">
+      <mat-option *ngFor="let estado of estados" [value]="estado.name">
+        {{estado.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="50" color="accent">
+    <mat-select formControlName="hotel" placeholder="hotel">
+      <div *ngFor="let hotel of hoteles">
+        <mat-option [value]="hotel">
+          {{hotel.name}}
+        </mat-option>
+      </div> 
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field fxFlex="50" color="accent">
+    <input matInput placeholder="Precio" type="number" formControlName="price">
+  </mat-form-field>
+  <mat-form-field fxFlex="50" color="accent">
+    <input matInput placeholder="Numero de Personas" type="number" formControlName="numberOfPeople">
+  </mat-form-field>
+  <input type="submit">
+</form>
