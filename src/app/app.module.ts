@@ -47,6 +47,22 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { ComprarComponent } from './components/comprar/comprar.component';
 import { PagoFormComponent } from './components/pago-form/pago-form.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { TravelService } from "./services/travel.service";
+import { HotelService } from "./services/hotel.service"
+import { HttpModule } from '@angular/http';
+import { ServiciosApiComponent } from './components/servicios-api/servicios-api.component';
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDQyPdZpqFnzX2CzR4lkEcZ0lZHxJehO6w",
+  authDomain: "viajesredondos-c348f.firebaseapp.com",
+  databaseURL: "https://viajesredondos-c348f.firebaseio.com",
+  projectId: "viajesredondos-c348f",
+  storageBucket: "viajesredondos-c348f.appspot.com",
+  messagingSenderId: "115458480807"
+};
 
 @NgModule({
   declarations: [
@@ -59,10 +75,12 @@ import { PagoFormComponent } from './components/pago-form/pago-form.component';
     HotelComponent,
     DetallesComponent,
     ComprarComponent,
-    PagoFormComponent
+    PagoFormComponent,
+    ServiciosApiComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -95,9 +113,12 @@ import { PagoFormComponent } from './components/pago-form/pago-form.component';
     MatToolbarModule,
     MatTooltipModule,
     FlexLayoutModule,
-    APP_ROUTING
-  ],
-  providers: [],
+    APP_ROUTING,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule],
+  providers: [TravelService, HotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
