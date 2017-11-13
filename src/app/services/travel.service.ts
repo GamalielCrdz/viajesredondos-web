@@ -30,4 +30,8 @@ export class TravelService {
     return this.http.delete(this.apiUrl + `/travel/${id}`, this.headers);
   }
 
+  public show(id){
+    return this.http.get(this.apiUrl + `/travel/${id}`, this.headers).map(response => response.json());
+  }
+
 }

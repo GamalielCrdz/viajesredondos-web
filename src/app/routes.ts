@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'redondos', component: RedondosComponent },
   { path: 'hotel', component: HotelComponent },
   { path: 'avion', component: AvionComponent },
-  { path: 'detalles', component: DetallesComponent },
+  { path: 'detalles/:id', component: DetallesComponent },
   { path: 'compra', component: ComprarComponent },
   { path: 'pago', component: PagoFormComponent },
   { path: 'services', component: ServiciosApiComponent },
