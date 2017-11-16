@@ -35,14 +35,16 @@
 
           <span fxFlex="80" style="border-top-style: solid;"> Total</span><span fxFlex="20" style="border-top-style: solid;" class="text-right">$2000</span>
          <!-- checar este button -->
-          <span fxFlex="80"></span> <button fxFlex="100px" fxFlexAlign="center" mat-raised-button color="accent" routerLink="/compra">Comprar</button>
+          <span fxFlex="80"></span> <button fxFlex="100px" fxFlexAlign="center" mat-raised-button color="accent" [routerLink]="['/compra', travel.id]">Comprar</button>
         </div>
       </mat-expansion-panel>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-icon>chat</mat-icon> Opiniones
         </mat-expansion-panel-header>
-        content
+        <div style="border: 1px solid white; height: 37px " *ngFor="let opinion of travel.hotel.opinions">
+          <mat-icon>message</mat-icon>{{opinion}}
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

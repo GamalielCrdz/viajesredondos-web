@@ -25,6 +25,7 @@ export class DetallesComponent implements OnInit {
     this.activeRoute.params.subscribe(params => {
       this.travelService.show(params['id']).subscribe(response => {
         this.travel = response;
+        this.travel.hotel.stars =[];
         this.travel.hotel.stars.length = this.travel.hotel.qualification;
         console.log(response);
       });

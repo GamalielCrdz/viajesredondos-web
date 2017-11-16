@@ -7,7 +7,7 @@ export class HotelService {
 
   hotel: BehaviorSubject<any>  = new BehaviorSubject([]);
 
-  apiUrl: string = "http://localhost:8080";
+  apiUrl: string = "http://192.168.13.162:8080";
 
   constructor(
     private http: Http) { }
