@@ -10,14 +10,10 @@
     <mat-card-content fxFlex="200px" fxLayout="row" fxLayoutWrap>
       <img fxFlex="42" src="assets/images/hotel1.jpg">
       <div fxFlex="45" class="ml15">
-        <p>Ida:{{travel.departureDate}}</p>
-        <p>Vuelta:{{travel.returnDate}}</p>
+        <p>Ida:{{travel.departureDate | date}}</p>
+        <p>Vuelta:{{travel.returnDate | date}}</p>
         <div>
-          <mat-icon color="primary">star</mat-icon>
-          <mat-icon color="primary">star</mat-icon>
-          <mat-icon color="primary">star</mat-icon>
-          <mat-icon color="primary">star</mat-icon>
-          <mat-icon color="primary">star</mat-icon>
+          <mat-icon color="primary" *ngFor="let star of travel.hotel.stars">star</mat-icon>
           <div> Calificacion</div>
         </div>
       </div>
@@ -30,11 +26,12 @@
           <mat-icon>attach_money</mat-icon>Precio por Viaje
         </mat-expansion-panel-header>
         <div fxLayout="row" fxLayoutWrap>
-          <span fxFlex="80">Hotel + vuelo </span><span fxFlex class="text-right">$1000</span><br>
-          <span fxFlex="80">Numero de Personas </span><span fxFlex class="text-right">x2</span>
+          <span fxFlex="80">Hotel + vuelo </span><span fxFlex class="text-right">${{travel.price}}</span><br>
+          <span fxFlex="80">Numero de Personas </span><span fxFlex class="text-right">x{{travel.numberOfPeople}}</span>
 
-          <span fxFlex="80" style="border-top-style: solid;"> Total</span><span fxFlex="20" style="border-top-style: solid;" class="text-right">$2000</span>
-         <!-- checar este button -->
+          <span fxFlex="80" style="border-top-style: solid;"> Total</span><span fxFlex="20" style="border-top-style: solid;"
+            class="text-right">${{travel.price * travel.numberOfPeople}}</span>
+          <!-- checar este button -->
           <span fxFlex="80"></span> <button fxFlex="100px" fxFlexAlign="center" mat-raised-button color="accent" [routerLink]="['/compra', travel.id]">Comprar</button>
         </div>
       </mat-expansion-panel>

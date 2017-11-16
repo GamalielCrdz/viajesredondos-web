@@ -11,14 +11,13 @@ import { Hotel } from '../../models/hotel';
 })
 export class DetallesComponent implements OnInit {
 
-  travel: Travel;
+  public travel: Travel;
 
   constructor(private activeRoute: ActivatedRoute,
     private travelService: TravelService
   ) {
     this.travel = new Travel();
-    this.travel.hotel = new Hotel;
-    this.travel.hotel.stars =[];
+    this.travel.hotel = new Hotel();
   }
 
   ngOnInit() {
@@ -27,7 +26,6 @@ export class DetallesComponent implements OnInit {
         this.travel = response;
         this.travel.hotel.stars =[];
         this.travel.hotel.stars.length = this.travel.hotel.qualification;
-        console.log(response);
       });
     });
   }
