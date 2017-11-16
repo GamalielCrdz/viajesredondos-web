@@ -1,3 +1,189 @@
-<p>
-  hotel works!
-</p>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-evenly">
+  <!-- <mat-card fxFlex="20" class="mb5 mr5">
+    <mat-card-header>
+      <h2>BUSCA TU VIAJE AQUÍ!</h2>
+    </mat-card-header>
+    <mat-card-content fxLayout="row" fxLayoutWrap>
+
+      <mat-form-field fxFlex="100" color="accent">
+        <input matInput placeholder="Origen">
+      </mat-form-field>
+      <mat-form-field fxFlex="100" color="accent">
+        <input matInput placeholder="Destino">
+      </mat-form-field>
+      <mat-form-field fxFlex="100" color="accent">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Salida">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field fxFlex="100" color="accent">
+        <input matInput [matDatepicker]="picker2" placeholder="Fecha de llegada">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-checkbox fxFlex style="white-space: normal;">Aun no decido la fecha</mat-checkbox>
+
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+      <button mat-raised-button color="accent">Buscar</button>
+    </mat-card-actions>
+  </mat-card> -->
+  <div fxFlex="80">
+    <div fxLayout="row">
+      <div fxFlex class="mb5 mr5">
+        <mat-card fxFlex>
+          <mat-card-content>
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+              <img fxFlex mat-card-lg-image src="assets/images/hotel1.jpg">
+              <span fxFlex="2"></span>
+              <div fxFlex="36" s>
+                <div fxLayout="column" fxLayoutAlign="space-around none">
+                  <div fxFlex>
+                    <h2> Hotel Holiiday</h2>
+                  </div>
+                  <div fxLayout="row">
+                    <div fxFlex="15">
+                      <mat-icon color="primary">place</mat-icon>
+                      <div>Mapa</div>
+                    </div>
+                    <div class="m0" fxFlex="80" fxFlexOffset="5">
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <div> Calificacion</div>
+                    </div>
+                  </div>
+                  <div class="mt5" fxFlex="column" fxLayoutWrap>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_land</mat-icon>
+                      Desde: 23/04/2017
+                    </div>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_takeoff</mat-icon>
+                      Hasta: 23/04/2017
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div fxFlex="23" fxFlex.lt-sm="100" fxFlexAlign="normal" style="background-color: #3f51b5; text-align: center">
+                <p>Hotel + Vuelo(ida-vuelta)</p>
+                <p>
+                  MXN $1160 X persona
+                </p>
+                <p>
+                  <button mat-raised-button color="accent" routerLink="/detalles">Ver detalles</button>
+                </p>
+              </div> -->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex class="mb5 mr5">
+        <mat-card>
+          <mat-card-content>
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+              <img fxFlex mat-card-lg-image src="assets/images/hotel1.jpg">
+              <span fxFlex="2"></span>
+              <div fxFlex="36" s>
+                <div fxLayout="column" fxLayoutAlign="space-around none">
+                  <div fxFlex>
+                    <h2> Hotel Holiiday</h2>
+                  </div>
+                  <div fxLayout="row">
+                    <div fxFlex="15">
+                      <mat-icon color="primary">place</mat-icon>
+                      <div>Mapa</div>
+                    </div>
+                    <div class="m0" fxFlex="80" fxFlexOffset="5">
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <div> Calificacion</div>
+                    </div>
+                  </div>
+                  <div class="mt5" fxFlex="column" fxLayoutWrap>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_land</mat-icon>
+                      Desde: 23/04/2017
+                    </div>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_takeoff</mat-icon>
+                      Hasta: 23/04/2017
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div fxFlex="23" fxFlex.lt-sm="100" fxFlexAlign="normal" style="background-color: #3f51b5; text-align: center">
+                <p>Hotel + Vuelo(ida-vuelta)</p>
+                <p>
+                  MXN $1160 X persona
+                </p>
+                <p>
+                  <button mat-raised-button color="accent" routerLink="/detalles">Ver detalles</button>
+                </p>
+              </div> -->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex class="mb5 mr5">
+        <mat-card>
+          <mat-card-content>
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+              <img fxFlex mat-card-lg-image src="assets/images/hotel1.jpg">
+              <span fxFlex="2"></span>
+              <div fxFlex="36" s>
+                <div fxLayout="column" fxLayoutAlign="space-around none">
+                  <div fxFlex>
+                    <h2> Hotel Holiiday</h2>
+                  </div>
+                  <div fxLayout="row">
+                    <div fxFlex="15">
+                      <mat-icon color="primary">place</mat-icon>
+                      <div>Mapa</div>
+                    </div>
+                    <div class="m0" fxFlex="80" fxFlexOffset="5">
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <mat-icon color="primary">star</mat-icon>
+                      <div> Calificacion</div>
+                    </div>
+                  </div> 
+                  <div class="mt5" fxFlex="column" fxLayoutWrap>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_land</mat-icon>
+                      Desde: 23/04/2017
+                    </div>
+                    <div fxFlex="100">
+                      <mat-icon color="primary">flight_takeoff</mat-icon>
+                      Hasta: 23/04/2017
+                    </div>
+                  </div> 
+                </div>
+              </div><!-- 
+              <div fxFlex="23" fxFlex.lt-sm="100" fxFlexAlign="normal" style="background-color: #3f51b5; text-align: center">
+                <p>Hotel + Vuelo(ida-vuelta)</p>
+                <p>
+                  MXN $1160 X persona
+                </p>
+                <p>
+                  <button mat-raised-button color="accent" routerLink="/detalles">Ver detalles</button>
+                </p>
+              </div> -->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
