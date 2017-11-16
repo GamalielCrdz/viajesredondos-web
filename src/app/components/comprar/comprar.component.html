@@ -12,8 +12,8 @@
   <mat-card *ngIf="!hide" fxFlex style="background-color:#8bc34a">
     <mat-card-content>
       <div fxLayout="row" fxLayoutWrap>
-        <p fxFlex="80">Paquete para 2 Personas</p>
-        <p fxFlex="20">$100</p>
+        <p fxFlex="80">Paquete para {{travel.numberOfPeople}} Personas</p>
+        <p fxFlex="20">${{travel.price * travel.numberOfPeople}}</p>
         <p fxFlex="80">Descuento viajesredondos.com</p>
         <p fxFlex="20">$100</p>
         <p fxFlex="80">Impuestos, tasas y cargos</p>
@@ -33,7 +33,7 @@
     </mat-card-header>
     <mat-card-content>
       <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
-        <h3 fxFlex="100">Adulto 1</h3>
+        <h3 fxFlex="100">Adulto Titular</h3>
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Nombre">
         </mat-form-field>
@@ -56,7 +56,7 @@
           <mat-radio-button value="2">Masculino</mat-radio-button>
         </mat-radio-group>
       </div>
-      <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+<!--       <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
         <h3 fxFlex="100">Adulto 2</h3>
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Nombre">
@@ -79,7 +79,7 @@
           <mat-radio-button value="1">Femenino</mat-radio-button>
           <mat-radio-button value="2">Masculino</mat-radio-button>
         </mat-radio-group>
-      </div>
+      </div> -->
       <mat-card-actions>
         <button routerLink="/pago" mat-raised-button color="accent">
           Forma de Pago
@@ -96,18 +96,18 @@
           <mat-panel-title>VUELO</mat-panel-title>
         </mat-expansion-panel-header>
         <div class="border" fxLayout="row" fxLayoutWrap>
-          <p fxFlex="50"><strong>Ida:</strong>10 Sep</p>
+          <p fxFlex="50"><strong>Ida:</strong>{{travel.departureDate |date}}</p>
           <p fxFlex="50"><strong>Directo</strong></p>
-          <p fxFlex="50"><strong>Origen:</strong>MTY</p>
-          <p fxFlex="50"><strong>Destino:</strong>GDL</p>
+          <p fxFlex="50"><strong>Origen:</strong>{{travel.departureCity}}</p>
+          <p fxFlex="50"><strong>Destino:</strong>{{travel.arrivalCity}}</p>
           <p fxFlex="50"><strong>Sale:</strong>8:00 hrs</p>
           <p fxFlex="50"><strong>Llega:</strong>10:00 hrs</p>
         </div>
         <div class="border mt5" fxLayout="row" fxLayoutWrap>
-          <p fxFlex="50"><strong>Vuelta:</strong>10 Sep</p>
+          <p fxFlex="50"><strong>Vuelta:</strong>{{travel.returnDate |date}}</p>
           <p fxFlex="50"><strong>Directo</strong></p>
-          <p fxFlex="50"><strong>Origen:</strong>MTY</p>
-          <p fxFlex="50"><strong>Destino:</strong>GDL</p>
+          <p fxFlex="50"><strong>Origen:</strong>{{travel.arrivalCity}}</p>
+          <p fxFlex="50"><strong>Destino:</strong>{{travel.departureCity}}</p>
           <p fxFlex="50"><strong>Sale:</strong>8:00 hrs</p>
           <p fxFlex="50"><strong>Llega:</strong>10:00 hrs</p>
         </div>
@@ -118,16 +118,12 @@
         </mat-expansion-panel-header>
         <div class="border mt5" fxLayout="column" fxLayoutWrap>
           <p fxFlex="50"><strong>Hotel FIME</strong>
-            <mat-icon color="primary">star</mat-icon>
-            <mat-icon color="primary">star</mat-icon>
-            <mat-icon color="primary">star</mat-icon>
-            <mat-icon color="primary">star</mat-icon>
-            <mat-icon color="primary">star</mat-icon>
+            <mat-icon color="primary" *ngFor="let star of travel.hotel.stars">star</mat-icon>
           </p>
           <p fxFlex="50"><strong>1 Noche</strong></p>
-          <p fxFlex="50"><strong>2 Adultos</strong></p>
-          <p fxFlex="50"><strong>Ida: 10 septiembre</strong></p>
-          <p fxFlex="50"><strong>Vuelta: 11 septiembre</strong></p>
+          <p fxFlex="50"><strong>{{travel.numberOfPeople}} Adultos</strong></p>
+          <p fxFlex="50"><strong>Ida: {{travel.departureDate |date}}</strong></p>
+          <p fxFlex="50"><strong>Vuelta: {{travel.returnDate |date}}</strong></p>
         </div>
       </mat-expansion-panel>
     </mat-accordion>

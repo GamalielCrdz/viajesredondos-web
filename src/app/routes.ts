@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: 'hotel', component: HotelComponent },
   { path: 'avion', component: AvionComponent },
   { path: 'detalles/:id', component: DetallesComponent },
-  { path: 'compra', component: ComprarComponent },
+  { path: 'compra/:id', component: ComprarComponent },
   { path: 'pago', component: PagoFormComponent },
   { path: 'services', component: ServiciosApiComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
