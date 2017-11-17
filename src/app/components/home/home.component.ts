@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TravelService } from '../../services/travel.service';
+import { Travel } from '../../models/travel';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -137,9 +140,25 @@ export class HomeComponent implements OnInit {
       "name": "Zacatecas"
     }
   ];
-  constructor() { }
+
+  public searchForm: FormGroup;
+
+  constructor(private travelService: TravelService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+  this.searchForm =  this.formBuilder.group(
+    {
+      departureCity: [''],
+      arrivalCity: [''],
+      departureDate: [''],
+      returnDate: ['']
+    }
+  );
+  }
+
+  search(travel: Travel) {
+    this.travelService.search(travel).subscribe();
   }
 
 }

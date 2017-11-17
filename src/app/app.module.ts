@@ -53,6 +53,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { TravelService } from "./services/travel.service";
 import { HotelService } from "./services/hotel.service"
+import { PurchaseService } from "./services/purchase.service"
 import { HttpModule } from '@angular/http';
 import { ServiciosApiComponent } from './components/servicios-api/servicios-api.component';
 
@@ -120,7 +121,7 @@ var firebaseConfig = {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule],
-  providers: [TravelService, HotelService],
+  providers: [TravelService, HotelService, PurchaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
