@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Travel } from '../models/travel';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class TravelService {
 
   public headers;
-  apiUrl: string = "http://localhosts:8080";
+  apiUrl: string = "http://localhost:8080";
+  travels: BehaviorSubject<Travel[]> = new BehaviorSubject([]);
 
   constructor(
     private http: Http) { 
@@ -23,7 +28,7 @@ export class TravelService {
   } 
 
   public search(travel){
-    return this.http.post(this.apiUrl + "/travel/search", travel);
+    return this.http.post(this.apiUrl + "/travel/search", travel).map(response => this.travels.next(response.json()));
   }
 
   public delete(id){

@@ -32,7 +32,7 @@
       <h1> Pasajeros</h1>
     </mat-card-header>
     <mat-card-content>
-      <form [formGroup]="passengerForm" fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
+      <form [formGroup]="purchaseForm" fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
         <h3 fxFlex="100">Adulto Titular</h3>
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Nombre" formControlName="name" >
@@ -81,7 +81,7 @@
         </mat-radio-group>
       </div> -->
       <mat-card-actions>
-        <button (click)="createUser(passengerForm.value)" routerLink="/pago" mat-raised-button color="accent">
+        <button (click)="purchase(purchaseForm.value)" routerLink="/pago" mat-raised-button color="accent">
           Forma de Pago
           <mat-icon aria-label="Example icon-button with a heart icon">navigate_next</mat-icon>
         </button>

@@ -4,7 +4,9 @@ import { ActivatedRoute } from "@angular/router";
 import { Travel } from "../../models/travel";
 import { Hotel } from "../../models/hotel";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Passenger } from "../../models/passenger";
+import { Purchase } from "../../models/purchase";
+import { PurchaseService } from '../../services/purchase.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-comprar',
@@ -15,10 +17,11 @@ export class ComprarComponent implements OnInit {
 
   public hide: boolean = false;
   public travel: Travel;
-  public passengerForm: FormGroup;
+  public purchaseForm: FormGroup;
 
   constructor(private activeRoute: ActivatedRoute,
     private travelService: TravelService,
+    private purchaseSerice: PurchaseService,
     private formBuilder: FormBuilder) {
     this.travel = new Travel();
     this.travel.hotel = new Hotel();
@@ -34,19 +37,21 @@ export class ComprarComponent implements OnInit {
         console.log(response);
       });
     });
-    this.passengerForm = this.formBuilder.group({
+    this.purchaseForm = this.formBuilder.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       nacionality: ['', Validators.required],
       birthDate: ['', Validators.required],
-      sex: []
+      sex: [],
+      travel: ['']
     });
   }
 
-  createUser(user: Passenger) {
-    console.log(user);
-    
-
+  purchase(purchase: Purchase) {
+    this.purchaseForm.value.travel = this.travel;
+    this.purchaseSerice.create(purchase).subscribe(response => {
+      console.log(response);
+    })
   }
 
 }
