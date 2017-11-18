@@ -5,7 +5,7 @@ import { Http } from "@angular/http";
 export class TravelService {
 
   public headers;
-  apiUrl: string = "http://localhost:8080";
+  apiUrl: string = "http://localhosts:8080";
 
   constructor(
     private http: Http) { 

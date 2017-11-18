@@ -18,7 +18,7 @@ $light-theme: mat-light-theme($light-primary,$accent,$warn);
 }
 
 /*dark theme*/
-$dark-primary: mat-palette($mat-deep-purple, 700);
+$dark-primary: mat-palette($mat-indigo, 700);
 $dark-theme: mat-dark-theme($dark-primary, $accent, $warn);
 
 .dark-theme {
