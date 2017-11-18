@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TravelService } from '../../services/travel.service';
 import { Travel } from '../../models/travel';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -144,7 +145,7 @@ export class HomeComponent implements OnInit {
   public searchForm: FormGroup;
 
   constructor(private travelService: TravelService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
   this.searchForm =  this.formBuilder.group(
@@ -158,7 +159,9 @@ export class HomeComponent implements OnInit {
   }
 
   search(travel: Travel) {
-    this.travelService.search(travel).subscribe();
+    this.travelService.search(travel).subscribe(response => {
+      this.router.navigateByUrl('/redondos');
+    });
   }
 
 }

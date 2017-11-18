@@ -37,7 +37,7 @@
         <mat-checkbox class="mat-checkbox-layout" [(checked)]="checked" (change)="checked=!checked" fxFlex="33">Aun no decido la fecha</mat-checkbox>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
-        <button mat-raised-button color="accent" routerLink="/redondos" (click)="search(searchForm.value)" >Buscar</button>
+        <button mat-raised-button color="accent" (click)="search(searchForm.value)" >Buscar</button>
       </mat-card-actions>
 
     </mat-card>
