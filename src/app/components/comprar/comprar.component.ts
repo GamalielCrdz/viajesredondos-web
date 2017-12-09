@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelService } from "../../services/travel.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Travel } from "../../models/travel";
 import { Hotel } from "../../models/hotel";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -20,6 +20,7 @@ export class ComprarComponent implements OnInit {
   public purchaseForm: FormGroup;
 
   constructor(private activeRoute: ActivatedRoute,
+    private router: Router,
     private travelService: TravelService,
     private purchaseSerice: PurchaseService,
     private formBuilder: FormBuilder) {
@@ -34,7 +35,6 @@ export class ComprarComponent implements OnInit {
         this.travel = response;
         this.travel.hotel.stars = [];
         this.travel.hotel.stars.length = this.travel.hotel.qualification;
-        console.log(response);
       });
     });
     this.purchaseForm = this.formBuilder.group({
@@ -48,10 +48,13 @@ export class ComprarComponent implements OnInit {
   }
 
   purchase(purchase: Purchase) {
-    this.purchaseForm.value.travel = this.travel;
-    this.purchaseSerice.create(purchase).subscribe(response => {
-      console.log(response);
-    })
-  }
+    if (this.purchaseForm.valid) {
+      this.purchaseForm.value.travel = this.travel;
+      this.purchaseSerice.create(purchase).subscribe(response => {
+        console.log(response);
+        this.router.navigate(['/pago', response.id]);
 
+      })
+    }
+  }
 }

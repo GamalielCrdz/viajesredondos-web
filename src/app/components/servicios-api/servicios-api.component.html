@@ -32,15 +32,11 @@
 <h2>Crear Viajes</h2>
 <form (ngSubmit)="createTravel(travelForm.value)" [formGroup]="travelForm" fxLayout="row" fxLayoutWrap>
   <mat-form-field fxFlex="33" color="accent">
-    <input matInput formControlName="departureDate" [matDatepicker]="picker" (focus)="picker.open()" placeholder="Fecha de Salida">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <input matInput formControlName="departureDate" type="date" placeholder="Fecha de Salida">
   </mat-form-field>
 
   <mat-form-field fxFlex="33" color="accent">
-    <input matInput formControlName="returnDate" [matDatepicker]="picker2" (focus)="picker2.open()" placeholder="Fecha de Regreso">
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
+    <input matInput formControlName="returnDate" type="date" placeholder="Fecha de Regreso">
   </mat-form-field>
 
   <mat-form-field fxFlex="49" fxFlex.lt-sm="100" color="accent">

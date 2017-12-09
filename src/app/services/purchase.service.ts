@@ -11,4 +11,8 @@ export class PurchaseService {
     return this.http.post(this.apiUrl + "/purchase", purchase).map(response => response.json());
   }
 
+  public show(id) {
+    return this.http.get(this.apiUrl + `/purchase/${id}`).map(response => response.json());
+  }
+
 }

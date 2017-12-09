@@ -1,17 +1,16 @@
-<div fxLayout="column" fxLayoutAlign="center stretch" class="dark-theme">
-
-  <div class="text-center" fxFlex>
-    <h1>Detalles de tu viaje</h1>
-  </div>
-  <mat-card fxFlex="50" fxLayout="column" fxLayoutAlign="start">
+<div class="text-center">
+  <h1>Detalles de tu viaje</h1>
+</div>
+<div fxLayout="row" fxLayoutAlign="center stretch" fxLayout.lt-sm="column" fxLayoutGap="5%">
+  <mat-card fxFlex="55" fxLayout="column" fxLayoutAlign="start">
     <mat-card-header fxFlex="100">
       <h1>{{travel.hotel.name}}</h1>
     </mat-card-header>
     <mat-card-content fxFlex="200px" fxLayout="row" fxLayoutWrap>
       <img fxFlex="42" src="assets/images/hotel1.jpg">
       <div fxFlex="45" class="ml15">
-        <p>Ida:{{travel.departureDate | date}}</p>
-        <p>Vuelta:{{travel.returnDate | date}}</p>
+        <p>Ida:{{(travel.departureDate | date) + " " + (travel.departureCity) }}</p>
+        <p>Vuelta:{{(travel.returnDate | date) + " " + (travel.arrivalCity) }}</p>
         <div>
           <mat-icon color="primary" *ngFor="let star of travel.hotel.stars">star</mat-icon>
           <div> Calificacion</div>
@@ -19,9 +18,9 @@
       </div>
     </mat-card-content>
   </mat-card>
-  <div class="mt5" fxFlex="100">
+  <div class="mt5" fxFlex="40">
     <mat-accordion>
-      <mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-icon>attach_money</mat-icon>Precio por Viaje
         </mat-expansion-panel-header>

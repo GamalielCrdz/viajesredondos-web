@@ -8,8 +8,8 @@
     Detalles de tu compra
   </div>
 </mat-toolbar>
-<div class="mt5" fxLayout="row" fxLayout.lt-sm="column">
-  <mat-card *ngIf="!hide" fxFlex style="background-color:#673ab7; color: white">
+<div class="mt5" fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="5%" fxLayout.lt-sm="column">
+  <mat-card class="mh" *ngIf="!hide" fxFlex="55" fxLayout="column" fxLayoutAlign="start" style="background-color:#673ab7; color: white">
     <mat-card-content>
       <div fxLayout="row" fxLayoutWrap>
         <p fxFlex="80">Paquete para {{travel.numberOfPeople}} Personas</p>
@@ -27,7 +27,7 @@
     </mat-card-actions>
   </mat-card>
 
-  <mat-card fxFlex *ngIf="hide">
+  <mat-card class="mh-365" fxFlex *ngIf="hide">
     <mat-card-header>
       <h1> Pasajeros</h1>
     </mat-card-header>
@@ -36,14 +36,17 @@
         <h3 fxFlex="100">Adulto Titular</h3>
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Nombre" formControlName="name" >
+          <mat-error>El nombre es requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Apellido" formControlName="lastName">
+          <mat-error>El Apellido es requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="45">
           <input matInput placeholder="Nacionalidad" formControlName="nacionality">
+          <mat-error>La nacionalidad es requerido</mat-error>
         </mat-form-field>
         <mat-form-field fxFlex="45">
           <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" formControlName="birthDate">
@@ -56,34 +59,11 @@
           <mat-radio-button value="2">Masculino</mat-radio-button>
         </mat-radio-group>
       </form>
-<!--       <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
-        <h3 fxFlex="100">Adulto 2</h3>
-        <mat-form-field fxFlex="45">
-          <input matInput placeholder="Nombre">
-        </mat-form-field>
 
-        <mat-form-field fxFlex="45">
-          <input matInput placeholder="Apellido">
-        </mat-form-field>
-
-        <mat-form-field fxFlex="45">
-          <input matInput placeholder="Nacionalidad">
-        </mat-form-field>
-        <mat-form-field fxFlex="45">
-          <input matInput [matDatepicker]="picker2" placeholder="Fecha de Nacimiento">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-        <mat-radio-group fxFlex>
-          Sexo:
-          <mat-radio-button value="1">Femenino</mat-radio-button>
-          <mat-radio-button value="2">Masculino</mat-radio-button>
-        </mat-radio-group>
-      </div> -->
       <mat-card-actions>
-        <button (click)="purchase(purchaseForm.value)" routerLink="/pago" mat-raised-button color="accent">
+        <button type="submit" (click)="purchase(purchaseForm.value)" mat-raised-button color="accent">
           Forma de Pago
-          <mat-icon aria-label="Example icon-button with a heart icon">navigate_next</mat-icon>
+          <mat-icon>navigate_next</mat-icon>
         </button>
       </mat-card-actions>
     </mat-card-content>

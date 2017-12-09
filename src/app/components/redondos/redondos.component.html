@@ -38,12 +38,12 @@
   </mat-card>
   <div fxFlex="80">
 
-    <div fxLayout="row" *ngFor="let travel of traveles">
+    <div fxLayout="row" *ngFor="let travel of traveles; let i = index">
       <div fxFlex class="mb5 mr5">
         <mat-card fxFlex>
           <mat-card-content>
             <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
-              <img fxFlex mat-card-lg-image src="assets/images/hotel1.jpg">
+              <img fxFlex mat-card-lg-image src="assets/images/hotel{{i+1}}.jpg">
               <span fxFlex="2"></span>
               <div fxFlex="36" s>
                 <div fxLayout="column" fxLayoutAlign="space-around none">
@@ -63,11 +63,11 @@
                   <div class="mt5" fxFlex="column" fxLayoutWrap>
                     <div fxFlex="100">
                       <mat-icon color="primary">flight_land</mat-icon>
-                      Desde: {{travel.departureDate | date}}
+                      Desde: {{(travel.departureDate | date) + " " + (travel.departureCity)}}
                     </div>
                     <div fxFlex="100">
                       <mat-icon color="primary">flight_takeoff</mat-icon>
-                      Hasta: {{travel.returnDate | date}}
+                      Hasta: {{(travel.returnDate | date) + " " + (travel.arrivalCity)}}
                     </div>
                   </div>
                 </div>

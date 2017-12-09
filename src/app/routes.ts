@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'avion', component: AvionComponent },
   { path: 'detalles/:id', component: DetallesComponent },
   { path: 'compra/:id', component: ComprarComponent },
-  { path: 'pago', component: PagoFormComponent },
+  { path: 'pago/:id', component: PagoFormComponent },
   { path: 'services', component: ServiciosApiComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]

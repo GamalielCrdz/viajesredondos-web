@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { State } from "../../models/state";
+import { ActivatedRoute } from "@angular/router";
+import { PurchaseService } from "../../services/purchase.service";
+import { Purchase } from "../../models/purchase";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-pago-form',
@@ -7,19 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagoFormComponent implements OnInit {
 
-  public tarjetas = [{ name: "American Express" }, { name: "American Express" }, { name: "American Express" }]
-  public meses = [{ name: "Enero" },
-  { name: "Febrero" },
-  { name: "Marzo" },
-  { name: "Abril" },
-  { name: "Mayo" },
-  { name: "Junio" },
-  { name: "Julio" },
-  { name: "Agosto" },
-  { name: "Septiembre" },
-  { name: "Octubre" },
-  { name: "Noviembre" },
-  { name: "Diciembre" }];
+  public tarjetas = [{ name: "American Express" }, { name: "Master Card" }, { name: "Visa" }]
+  public meses = [{ name: "01" },
+  { name: "02" },
+  { name: "03" },
+  { name: "04" },
+  { name: "05" },
+  { name: "06" },
+  { name: "07" },
+  { name: "08" },
+  { name: "09" },
+  { name: "10" },
+  { name: "11" },
+  { name: "12" }];
   public anos = [{ name: "2017" },
   { name: "2017" },
   { name: "2018" },
@@ -32,140 +37,48 @@ export class PagoFormComponent implements OnInit {
   { name: "2025" },
   { name: "2026" },
   { name: "2027" }]
-  public estados = [
-    {
-      "id": 1,
-      "name": "Aguascalientes"
-    },
-    {
-      "id": 2,
-      "name": "Baja California"
-    },
-    {
-      "id": 3,
-      "name": "Baja California Sur"
-    },
-    {
-      "id": 4,
-      "name": "Campeche"
-    },
-    {
-      "id": 5,
-      "name": "Coahuila"
-    },
-    {
-      "id": 6,
-      "name": "Colima"
-    },
-    {
-      "id": 7,
-      "name": "Chiapas"
-    },
-    {
-      "id": 8,
-      "name": "Chihuahua"
-    },
-    {
-      "id": 9,
-      "name": "Distrito Federal"
-    },
-    {
-      "id": 10,
-      "name": "Durango"
-    },
-    {
-      "id": 11,
-      "name": "Guanajuato"
-    },
-    {
-      "id": 12,
-      "name": "Guerrero"
-    },
-    {
-      "id": 13,
-      "name": "Hidalgo"
-    },
-    {
-      "id": 14,
-      "name": "Jalisco"
-    },
-    {
-      "id": 15,
-      "name": "México"
-    },
-    {
-      "id": 16,
-      "name": "Michoacán"
-    },
-    {
-      "id": 17,
-      "name": "Morelos"
-    },
-    {
-      "id": 18,
-      "name": "Nayarit"
-    },
-    {
-      "id": 19,
-      "name": "Nuevo León"
-    },
-    {
-      "id": 20,
-      "name": "Oaxaca"
-    },
-    {
-      "id": 21,
-      "name": "Puebla"
-    },
-    {
-      "id": 22,
-      "name": "Querétaro"
-    },
-    {
-      "id": 23,
-      "name": "Quintana Roo"
-    },
-    {
-      "id": 24,
-      "name": "San Luis Potosí"
-    },
-    {
-      "id": 25,
-      "name": "Sinaloa"
-    },
-    {
-      "id": 26,
-      "name": "Sonora"
-    },
-    {
-      "id": 27,
-      "name": "Tabasco"
-    },
-    {
-      "id": 28,
-      "name": "Tamaulipas"
-    },
-    {
-      "id": 29,
-      "name": "Tlaxcala"
-    },
-    {
-      "id": 30,
-      "name": "Veracruz"
-    },
-    {
-      "id": 31,
-      "name": "Yucatán"
-    },
-    {
-      "id": 32,
-      "name": "Zacatecas"
-    }
-  ];
-  public compra:boolean = false;
-  constructor() { }
+  public estados: any;
+  public compra: boolean = false;
+  public states: State;
+  public purchase: Purchase;
+  public tarjetaForm: FormGroup;
+
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private purchaseService: PurchaseService,
+    private formBuilder: FormBuilder
+  ) {
+    this.states = new State();
+    this.estados = this.states.states;
+    this.purchase = new Purchase();
+  }
 
   ngOnInit() {
+    this.tarjetaForm = this.formBuilder.group({
+      type: ['', [Validators.required]],
+      numberCard: ['', [Validators.required]],
+      month: ['', [Validators.required]],
+      year: ['', [Validators.required]],
+      code: ['', [Validators.required]],
+      holder: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      street: ['', [Validators.required]],
+      postalCode: ['', [Validators.required]]
+    });
+
+    this.activeRoute.params.subscribe(params => {
+      this.purchaseService.show(params['id']).subscribe(response => {
+        console.log(response)
+        this.purchase = response;
+      });
+    });
+  }
+
+  comprar() {
+    if (this.tarjetaForm.valid) {
+      this.compra = true;
+    }
   }
 
 }
